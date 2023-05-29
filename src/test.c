@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include "mlx/mlx.h"
 
 int main(int ac, char **av)
 {
