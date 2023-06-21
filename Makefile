@@ -6,7 +6,7 @@ LFT			=	libft/libft.a
 INC			=	-I ./inc -I ./libft -I ./mlx
 LIB			=	-L ./libft -lft -L ./mlx -lmlx -lXext -lX11 -lm -lbsd
 OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
-SRC			=	src/test.c	\
+SRC			=	src/test2.c	\
 
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m
