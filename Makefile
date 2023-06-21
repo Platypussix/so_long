@@ -6,20 +6,23 @@ LFT			=	libft/libft.a
 INC			=	-I ./inc -I ./libft -I ./mlx
 LIB			=	-L ./libft -lft -L ./mlx -lmlx -lXext -lX11 -lm -lbsd
 OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
-SRC			=	test.c	\
+SRC			=	src/test.c	\
 
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
 COLOUR_END=\033[0m
 
-all:		$(MLX) $(LFT) obj $(NAME)
+all:		obj $(MLX) $(LFT) $(NAME)
 
 $(NAME):	$(OBJ)
 			@echo "$(COLOUR_RED) [ .. ] | compiling so_long..$(COLOUR_END)"
 			$(CC) $(FLAGS) -o $@ $^ $(LIB)
 			@echo "$(COLOUR_GREEN) [ OK ] | so_long ready!$(COLOUR_END)"
 
+$(OBJ):	obj/%.o:	src/%.c
+		@mkdir -p obj
+		$(CC) $(FLAGS) $(INC) -c $< -o $@
 
 $(MLX):
 			@echo "$(COLOUR_RED) [ .. ] | Compiling minilibx..$(COLOUR_END)"
